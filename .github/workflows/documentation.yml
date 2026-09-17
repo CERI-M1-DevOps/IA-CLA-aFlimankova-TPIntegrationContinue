@@ -10,6 +10,8 @@ jobs:
   documentation:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
@@ -22,7 +24,7 @@ jobs:
           distribution: 'corretto'
 
       - name: Generate Javadoc
-        run: mvn -B javadoc:javadoc
+        run: mvn -B javadoc::javadoc
 
       - name: Deploy documentation
         uses: peaceiris/actions-gh-pages@v4
