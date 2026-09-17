@@ -22,7 +22,7 @@ jobs:
           distribution: 'corretto'
 
       - name: Generate Javadoc
-        run: mvn -B javadoc::javadoc
+        run: mvn -B javadoc:javadoc
 
       - name: Deploy documentation
         uses: peaceiris/actions-gh-pages@v4
