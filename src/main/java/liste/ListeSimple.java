@@ -1,18 +1,31 @@
 package liste;
 
+
 public class ListeSimple {
     private long size;
     Noeud tete;
 
+    /**
+     * Returns the size of the list.
+     *
+     * @return the number of the elements
+     */
     public long getSize() {
         return size;
     }
+
 
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
 
+    /**
+     * Replaces the first matching element.
+     *
+     * @param element the element to find
+     * @param nouvelleValeur the new value
+     */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
 
@@ -25,6 +38,12 @@ public class ListeSimple {
         }
     }
 
+    /**
+     * Modifies all matching elements.
+     *
+     * @param element the element to find
+     * @param nouvelleValeur the new value
+     */
     public void modifieTous(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
 
@@ -36,6 +55,11 @@ public class ListeSimple {
         }
     }
 
+    /**
+     * Converts the list to a string.
+     *
+     * @return the list as a string
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("ListeSimple(");
@@ -54,6 +78,11 @@ public class ListeSimple {
         return sb.toString();
     }
 
+    /**
+     * Removes the first matching element.
+     *
+     * @param element the element to remove
+     */
     public void supprimePremier(Object element) {
         if (tete != null) {
             if (tete.getElement() == element) {
@@ -77,6 +106,11 @@ public class ListeSimple {
         }
     }
 
+    /**
+     * Removes all matching elements.
+     *
+     * @param element the element to remove
+     */
     public void supprimeTous(int element) {
         tete = supprimeTousRecurs(element, tete);
     }
@@ -127,6 +161,7 @@ public class ListeSimple {
         tete = precedent;
     }
 
+
     public Noeud getPrecedent(Noeud r) {
         Noeud precedent = tete;
         Noeud courant = precedent.getSuivant();
@@ -138,6 +173,7 @@ public class ListeSimple {
 
         return precedent;
     }
+
 
     public void echanger(Noeud r1, Noeud r2) {
         if (r1 == r2) {
